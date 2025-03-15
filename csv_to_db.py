@@ -115,8 +115,8 @@ def insert_records_to_db(records, batch_size=1000):
 def main():
     # Process Netherlands files
     records = []
-    records.extend(process_netherlands_file('Netherlands 01.txt'))
-    records.extend(process_netherlands_file('Netherlands 02.txt'))
+    records.extend(process_netherlands_file('data/Netherlands 01.txt'))
+    records.extend(process_netherlands_file('data/Netherlands 02.txt'))
     
     # Process Belgium file
     records.extend(process_belgium_file('Belgium.txt'))
