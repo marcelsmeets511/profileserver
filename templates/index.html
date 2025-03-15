@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .search-form {
+            margin-bottom: 30px;
+        }
+        .results-table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Profile Search</h1>
+        
+        <div class="search-form">
+            <form action="/search" method="post">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="telefoonnummer" class="form-label">Telefoonnummer</label>
+                        <input type="text" class="form-control" id="telefoonnummer" name="telefoonnummer" 
+                               value="{{ search_params.telefoonnummer if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="facebookid" class="form-label">Facebook ID</label>
+                        <input type="text" class="form-control" id="facebookid" name="facebookid"
+                               value="{{ search_params.facebookid if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="voornaam" class="form-label">Voornaam</label>
+                        <input type="text" class="form-control" id="voornaam" name="voornaam"
+                               value="{{ search_params.voornaam if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="achternaam" class="form-label">Achternaam</label>
+                        <input type="text" class="form-control" id="achternaam" name="achternaam"
+                               value="{{ search_params.achternaam if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="geslacht" class="form-label">Geslacht</label>
+                        <input type="text" class="form-control" id="geslacht" name="geslacht"
+                               value="{{ search_params.geslacht if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="plaatsnaam" class="form-label">Plaatsnaam</label>
+                        <input type="text" class="form-control" id="plaatsnaam" name="plaatsnaam"
+                               value="{{ search_params.plaatsnaam if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="geboorteplaats" class="form-label">Geboorteplaats</label>
+                        <input type="text" class="form-control" id="geboorteplaats" name="geboorteplaats"
+                               value="{{ search_params.geboorteplaats if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="status" class="form-label">Status</label>
+                        <input type="text" class="form-control" id="status" name="status"
+                               value="{{ search_params.status if search_params else '' }}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="bedrijfsnaam" class="form-label">Bedrijfsnaam</label>
+                        <input type="text" class="form-control" id="bedrijfsnaam" name="bedrijfsnaam"
+                               value="{{ search_params.bedrijfsnaam if search_params else '' }}">
+                    </div>
+                    <div class="col-12 mt-4">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        {% if results %}
+        <div class="results-table">
+            <h2>Search Results ({{ results|length }})</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Telefoonnummer</th>
+                            <th>Facebook ID</th>
+                            <th>Voornaam</th>
+                            <th>Achternaam</th>
+                            <th>Geslacht</th>
+                            <th>Plaatsnaam</th>
+                            <th>Geboorteplaats</th>
+                            <th>Status</th>
+                            <th>Bedrijfsnaam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for profile in results %}
+                        <tr>
+                            <td>{{ profile.telefoonnummer }}</td>
+                            <td>{{ profile.facebookid }}</td>
+                            <td>{{ profile.voornaam }}</td>
+                            <td>{{ profile.achternaam }}</td>
+                            <td>{{ profile.geslacht }}</td>
+                            <td>{{ profile.plaatsnaam }}</td>
+                            <td>{{ profile.geboorteplaats }}</td>
+                            <td>{{ profile.status }}</td>
+                            <td>{{ profile.bedrijfsnaam }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% elif search_params %}
+        <div class="alert alert-info mt-4">
+            No results found for your search criteria.
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
