@@ -98,8 +98,8 @@
                     <tbody>
                         {% for profile in results %}
                         <tr>
-                            <td>{{ profile.telefoonnummer }}</td>
-                            <td>{{ profile.facebookid }}</td>
+                            <td><a href="tel://{{ profile.telefoonnummer }}">{{ profile.telefoonnummer }}</a></td>
+                            <td><a href="https://facebook.com/{{ profile.facebookid }}">{{ profile.facebookid }}</a></td>
                             <td>{{ profile.voornaam }}</td>
                             <td>{{ profile.achternaam }}</td>
                             <td>{{ profile.geslacht }}</td>
