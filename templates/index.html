@@ -96,12 +96,12 @@
                             <td><a href="tel://{{ profile.telefoonnummer }}">{{ profile.telefoonnummer }}</a></td>
                             <td><a href="https://facebook.com/{{ profile.facebookid }}">{{ profile.facebookid }}</a></td>
                             <td><a href="https://profileserver-amar.onrender.com/zoeken?voornaam={{ profile.voornaam }}">{{ profile.voornaam }}</a></td>
-                            <td>{{ profile.achternaam }}</td>
-                            <td>{{ profile.geslacht }}</td>
-                            <td>{{ profile.plaatsnaam }}</td>
+                            <td><a href="https://profileserver-amar.onrender.com/zoeken?achternaam={{ profile.achternaam }}">{{ profile.achternaam }}</a></td>
+                            <td><a href="https://profileserver-amar.onrender.com/zoeken?achternaam={{ profile.geslacht }}">{{ profile.geslacht }}</a></td>
+                            <td><a href="https://profileserver-amar.onrender.com/zoeken?plaatsnaam={{ profile.plaatsnaam }}">{{ profile.plaatsnaam }}</a></td>
                             <td>{{ profile.geboorteplaats }}</td>
-                            <td>{{ profile.status }}</td>
-                            <td>{{ profile.bedrijfsnaam }}</td>
+                            <td><a href="https://profileserver-amar.onrender.com/zoeken?status={{ profile.status }}">{{ profile.status }}</a></td>
+                            <td><a href="https://profileserver-amar.onrender.com/zoeken?bedrijfsnaam={{ profile.bedrijfsnaam }}">{{ profile.bedrijfsnaam }}</a></td>
                         </tr>
                         {% endfor %}
                     </tbody>
