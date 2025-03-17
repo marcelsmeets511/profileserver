@@ -21,6 +21,18 @@ def get_db_connection():
 def index():
     return render_template('index.html')
 
+@app.route('/zoeken', methods=['GET'])
+def zoeken():
+    telefoonnummer = request.args.get('telefoonnummer', '')
+    facebookid = request.args.get('facebookid', '')
+    voornaam = request.args.get('voornaam', '')
+    achternaam = request.args.get('achternaam', '')
+    geslacht = request.args.get('geslacht', '')
+    plaatsnaam = request.args.get('plaatsnaam', '')
+    status = request.args.get('status', '')
+    bedrijfsnaam = request.args.get('bedrijfsnaam', '')
+    performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam)
+
 @app.route('/search', methods=['POST'])
 def search():
     # Get search parameters from form
@@ -32,7 +44,9 @@ def search():
     plaatsnaam = request.form.get('plaatsnaam', '')
     status = request.form.get('status', '')
     bedrijfsnaam = request.form.get('bedrijfsnaam', '')
+    performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam)
     
+def performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam):
     # Build query dynamically based on provided parameters
     query = "SELECT * FROM profiles WHERE 1=1"
     params = []
