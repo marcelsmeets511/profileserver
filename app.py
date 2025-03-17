@@ -71,7 +71,7 @@ def search():
         params.append(f"%{bedrijfsnaam}%")
     
     # Add limit to prevent overwhelming results
-    query += " LIMIT 100"
+    # query += " LIMIT 100"
     
     # Execute query
     conn = get_db_connection()
