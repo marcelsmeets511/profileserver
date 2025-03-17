@@ -31,7 +31,7 @@ def zoeken():
     plaatsnaam = request.args.get('plaatsnaam', '')
     status = request.args.get('status', '')
     bedrijfsnaam = request.args.get('bedrijfsnaam', '')
-    performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam)
+    return performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam)
 
 @app.route('/search', methods=['POST'])
 def search():
@@ -44,7 +44,7 @@ def search():
     plaatsnaam = request.form.get('plaatsnaam', '')
     status = request.form.get('status', '')
     bedrijfsnaam = request.form.get('bedrijfsnaam', '')
-    performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam)
+    return performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam)
     
 def performsearch(telefoonnummer,facebookid,voornaam,achternaam,geslacht,plaatsnaam,status,bedrijfsnaam):
     # Build query dynamically based on provided parameters
