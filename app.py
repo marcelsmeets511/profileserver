@@ -30,7 +30,6 @@ def search():
     achternaam = request.form.get('achternaam', '')
     geslacht = request.form.get('geslacht', '')
     plaatsnaam = request.form.get('plaatsnaam', '')
-    geboorteplaats = request.form.get('geboorteplaats', '')
     status = request.form.get('status', '')
     bedrijfsnaam = request.form.get('bedrijfsnaam', '')
     
@@ -59,12 +58,8 @@ def search():
         params.append(f"%{geslacht}%")
     
     if plaatsnaam:
-        query += " AND plaatsnaam ILIKE %s"
+        query += " AND (plaatsnaam ILIKE %s OR geboorteplaats ILIKE %s)"
         params.append(f"%{plaatsnaam}%")
-    
-    if geboorteplaats:
-        query += " AND geboorteplaats ILIKE %s"
-        params.append(f"%{geboorteplaats}%")
     
     if status:
         query += " AND status ILIKE %s"
