@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Search</title>
+    <title>Profiel zoekmachine</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4">Profile Search</h1>
+        <h1 class="mb-4">Profiel zoekmachine</h1>
         
         <div class="search-form">
             <form action="/search" method="post">
@@ -110,7 +110,7 @@
         </div>
         {% elif search_params %}
         <div class="alert alert-info mt-4">
-            No results found for your search criteria.
+            Kon geen resultaten vinden, probeer anders deel van het woord, stel je zoekt &quot;van de beek&quot; probeer dan enkel &quot;beek&quot;.
         </div>
         {% endif %}
     </div>
