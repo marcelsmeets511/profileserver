@@ -60,7 +60,7 @@ def search():
     if plaatsnaam:
         query += " AND (plaatsnaam ILIKE %s OR geboorteplaats ILIKE %s)"
         params.append(f"%{plaatsnaam}%")
-        params.append(f"%{geboorteplaats}%")
+        params.append(f"%{plaatsnaam}%")
     
     if status:
         query += " AND status ILIKE %s"
