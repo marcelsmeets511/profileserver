@@ -13,7 +13,12 @@ app = Flask(__name__)
 DB_URL = os.getenv("DATABASE_URL")
 
 def get_db_connection():
-    conn = psycopg2.connect(DB_URL)
+    conn = psycopg2.connect(
+        user=USER,
+        password=PASSWORD,
+        host=HOST,
+        port=PORT,
+        dbname=DBNAME)
     conn.cursor_factory = psycopg2.extras.DictCursor
     return conn
 
