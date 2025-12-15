@@ -7,6 +7,12 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
+USER = os.getenv("user")
+PASSWORD = os.getenv("password")
+HOST = os.getenv("host")
+PORT = os.getenv("port")
+DBNAME = os.getenv("dbname")
+
 app = Flask(__name__)
 
 # Database connection parameters
